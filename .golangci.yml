@@ -1,0 +1,92 @@
+# .golangci.yml
+run:
+  timeout: 5m
+
+  issues-exit-code: 1
+
+  tests: true
+
+  skip-dirs:
+    - bin
+    - vendor
+    - tmp
+
+linters-settings:
+  cyclop:
+    max-complexity: 15
+    package-average: 10.0
+    skip-tests: true
+
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+
+  funlen:
+    lines: 80
+    statements: 50
+
+  gocognit:
+    min-complexity: 15
+
+  gocyclo:
+    min-complexity: 15
+
+  lll:
+    line-length: 120
+
+  revive:
+    rules:
+      - name: exported
+        severity: warning
+        disabled: false
+      - name: package-comments
+        severity: warning
+        disabled: false
+      - name: var-naming
+        severity: warning
+        disabled: false
+
+  unparam:
+    check-exported: false
+
+linters:
+  enable:
+    # Default linters
+    - errcheck      # Check for unchecked errors
+    - gosimple      # Simplify code
+    - govet         # Go vet
+    - ineffassign   # Detect ineffectual assignments
+    - staticcheck   # Static analysis
+    - typecheck     # Type checking
+    - unused        # Detect unused constants, variables, functions and types
+
+    # Additional recommended linters
+    - asciicheck    # Check for non-ASCII identifiers
+    - bodyclose     # Check for HTTP response body closes
+    - cyclop        # Check cyclomatic complexity
+    - dupl          # Code clone detection
+    - durationcheck # Check for two time.Duration multiplications
+    - errorlint     # Error wrapping issues
+    - exhaustive    # Check exhaustiveness of enum switch statements
+    - exportloopref # Check for pointers to enclosing loop variables
+    - funlen        # Tool for detection of long functions
+    - gochecknoinits # Check for init functions
+    - gocognit      # Compute and check cognitive complexity
+    - goconst       # Find repeated strings that could be constants
+    - gocritic      # Comprehensive Go source code linter
+    - gocyclo       # Compute cyclomatic complexity
+    - godot         # Check if comments end in a period
+    - gofmt         # Check if code is gofmt-ed
+    - goimports     # Check if imports are sorted
+    - gomnd         # Detect magic numbers
+    - gosec         # Security checker
+    - lll           # Report long lines
+    - makezero      # Find slice declarations with non-zero initial length
+    - misspell      # Find commonly misspelled words
+    - nakedret      # Find naked returns in functions greater than specified length
+    - noctx         # Find sending HTTP request without context.Context
+    - nolintlint    # Report ill-formed or insufficient nolint directives
+    - prealloc      # Find slice declarations that could potentially be preallocated
+    - predeclared   # Find code that shadows one of Go's predeclared identifiers
+    - revive        # Fast, configurable, extensible, flexible linter
+    - rowserrcheck  # Check for
