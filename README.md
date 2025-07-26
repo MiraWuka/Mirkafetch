@@ -29,6 +29,18 @@ A fast, cross-platform system information display tool written in Go, inspired b
 
 ## Installation
 
+```bash
+curl -sSL https://raw.githubusercontent.com/MiraWuka/Mirkafetch/refs/heads/main/install.sh | bash
+```
+
+```bash
+curl -L https://raw.githubusercontent.com/MiraWuka/Mirkafetch/refs/heads/main/install.sh -o install.sh
+chmod +x install.sh
+./install.sh
+```
+
+
+
 ### From Source
 
 ```bash
